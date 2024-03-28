@@ -75,6 +75,8 @@
 
 
     <script>
+
+        let startY
         window.addEventListener('load', function(){
 
             const canvas = this.document.getElementById('canvas1')
@@ -640,6 +642,40 @@
         function reiniciar (){
     window.location.reload();
 }
+class InputHandler {
+    constructor(game){
+        this.game = game;
+        window.addEventListener('keydown', e => {
+            // código existente
+        });
+        window.addEventListener('keyup', e => {
+            // código existente
+        });
+
+        // Adicionando eventos de toque
+        window.addEventListener('touchstart', e => {
+            e.preventDefault();
+            let touch = e.touches[0];
+            this.startY = touch.pageY;
+        }, false);
+
+        window.addEventListener('touchmove', e => {
+            e.preventDefault();
+            let touch = e.touches[0];
+            if (touch.pageY < this.startY) {
+                this.game.keys.push('ArrowUp');
+            } else if (touch.pageY > this.startY) {
+                this.game.keys.push('ArrowDown');
+            }
+            this.startY = touch.pageY;
+        }, false);
+
+        window.addEventListener('touchend', e => {
+            this.game.keys = [];
+        }, false);
+    }
+}
+
     </script>
     
 </body>
