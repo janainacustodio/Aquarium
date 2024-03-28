@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aquarium Game</title>
+    <link rel="shortcut icon" href="img/aquario.png" type="image/x-icon">
     <style>
      /*font-family: 'Bangers', cursive;*/
 
@@ -29,7 +30,19 @@
     #layer1, #layer2, #layer3, #layer4, #player, #angler1, #angler2,
     #lucky, #projectile, #gears, #hivewhale, #drone, #smokeExplosion, #fireExplosion{
             display: none;
-    }        
+    }
+    button{
+    padding: 8px;
+    font-size: 20px;
+    position: absolute;
+    display: block;
+    margin-left: 190px;
+    margin-top: 530px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 10px;
+    font-family: 'Bangers', cursive;
+}      
 
 
     </style>
@@ -57,6 +70,9 @@
     <img id= "layer2" src="img/layer2.png">
     <img id= "layer3" src="img/layer3.png">
     <img id= "layer4" src="img/layer4.png">
+
+    <button onclick="reiniciar()">Restart Game</button>
+
 
     <script>
         window.addEventListener('load', function(){
@@ -621,6 +637,9 @@
             }
             animate(0);
         });
+        function reiniciar (){
+    window.location.reload();
+}
     </script>
     
 </body>
